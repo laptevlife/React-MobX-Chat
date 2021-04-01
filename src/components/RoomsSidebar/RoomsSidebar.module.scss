@@ -1,0 +1,118 @@
+.rooms__sidebar {
+    width: 300px;
+    height: 100vh;
+    border-right: 1px solid #E5E5E5;
+    position: relative;
+    &__headline {
+        height: 54px;
+        width: 100%;
+        border-bottom: 1px solid #E5E5E5;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        padding-left: 16px;
+    }
+    &__scrollbox {
+        width: 100%;
+        padding: 0 8px 9px 8px;
+    }
+}
+
+.room__card {
+    margin-top: 8px;
+    width: 283px;
+    height: 77px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    cursor: pointer;
+
+    .avatar {
+        width: 45px;
+        height: 100%;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+    }
+
+    .right__content {
+        width: calc(100% - 40px);
+        height: 100%;
+        padding:8px 8px 8px 0 ;
+        position: relative;
+
+        .line1 {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 40%;
+            width: 100%;
+            h6 {
+                font-size: 18px;
+                font-weight: 500;
+                color: rgba(0, 0, 0, 0.87)
+            }
+
+            div {
+                width: 65px;
+                height: 100%;
+                display: flex;
+                justify-content: space-evenly;
+                align-items: center;
+
+                .msg__count {
+                    
+                    width: auto;
+                    min-width: 18px;
+                    padding-left: 3px;
+                    padding-top: 1px;
+                    padding-right: 3px;
+                    height: 18px;
+                    border-radius: 9px;
+                    color: white;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    font-size: 14px;
+                    font-weight: 500;
+                    background-color: #083DCC;
+                }
+
+                .time {
+                    width: 40px;
+                    font-size: 14px;
+                    font-weight: 500;
+
+                }
+
+            }
+
+        }
+
+        .line2 {
+            display: flex;
+            height: 60%;
+            width: 100%;
+            span{
+                line-height: 16px;
+                letter-spacing: 0.25px;
+            }
+            .name{
+                font-size: 14px;
+                font-weight: 500;
+                color: rgba(0, 0, 0, 0.77);
+                letter-spacing: 0.25px;
+            }
+            .text{
+                font-size: 14px;
+                font-weight: 400;
+                color: rgba(0, 0, 0, 0.77);
+                letter-spacing: 0.25px;
+            }
+        }
+    }
+}
+.room__card__active{
+    background-color: rgba(8, 60, 204, 0.137);
+}

@@ -1,25 +1,78 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import './App.scss';
+import { useStore } from './Context';
+import { useObserver } from 'mobx-react'
+import RoomsSidebar from './components/RoomsSidebar/RoomsSidebar';
+import MessagesBlock from './components/MessagesBlock/MessagesBlock';
+const loremIpsum = require('lorem-ipsum').loremIpsum;
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+  const store = useStore()
+
+  React.useEffect(() => {
+    emit()
+  }, [])
+
+
+  const loremIpsum = require('lorem-ipsum').loremIpsum;
+  let init = true;
+  let id = 0;
+  const roomIds = ['Perry the Platypus', 'Tyler Durden', 'Amy Pond', 'Le Petit Prince', 'Dr. Heinz Doofenshmirtz', 'Gregory'];
+  const channelIds = ['VK', 'OK', 'FB'];
+
+  // emit();
+
+  function emit() {
+    // console.log('this', this);
+    let roomid = randomChoose(roomIds)
+    if (init) {
+      init = false;
+    } else {
+      handle({
+        id: ++id,
+        roomId: roomid ,
+        channelId: randomChoose(channelIds),
+        sender:  roomid,
+        recived: false,
+        body: loremIpsum({
+          count: randomBetween(1, 5),
+          format: 'plain',
+          units: randomChoose(['sentences', 'words']),
+        }),
+        ts: new Date(),
+      });
+    }
+    setTimeout(emit, randomBetween(1000, 3000));
+  }
+// console.log(this);
+
+  function randomBetween(min, max) {
+    return Math.floor((max - min + 1) * Math.random()) + min;
+  }
+
+  function randomChoose(array) {
+    return array[randomBetween(0, array.length - 1)];
+  }
+
+  function handle(message) {
+    // FIXME Your code goes here
+    // console.log(message);
+    store.pushMessage(message)
+  }
+
+
+
+  return useObserver(() => (
+    <div className='App'>
+      <RoomsSidebar />
+      <MessagesBlock />
     </div>
-  );
+
+  ));
 }
 
 export default App;
+
+
