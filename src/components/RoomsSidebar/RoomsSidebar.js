@@ -5,7 +5,7 @@ import { useStore } from '../../Context'
 import { useObserver } from "mobx-react";
 // import { toJS } from 'mobx'
 import classNames from 'classnames'
-import { motion } from 'framer-motion';
+
 
 
 
@@ -42,8 +42,6 @@ const RoomCard = React.memo(function ({ room }) {
     const store = useStore()
 
     const roomName = Object.keys(room)[0]
-    // console.log(roomName);
-
     const roomNameSlice = function () {
 
         if (roomName.length > 14) {
@@ -54,11 +52,8 @@ const RoomCard = React.memo(function ({ room }) {
     }
 
     const roomObj = Object.values(room)
-    // const messageLenght = roomObj[0].length
     const messageLenght = roomObj[0].filter(i => i.recived === false).length
-    // console.log( roomObj[0], roomObj[0].filter(i=>i.recived === false).length);
-
-    const { roomId, sender, body, ts } = roomObj[0][roomObj[0].length - 1]
+    const { roomId,  body, ts } = roomObj[0][roomObj[0].length - 1]
     const time = ts.toLocaleTimeString().slice(0, -3)
     const messageSlice = function () {
         if (body.length > 35) {
@@ -74,7 +69,6 @@ const RoomCard = React.memo(function ({ room }) {
             { [s.room__card__active]: roomId === store.getActiveChat() },
         )}
             onClick={() => store.setActiveChat(roomId)}>
-        
             <div className={s.avatar}>
                 <IconAvatars />
             </div>
