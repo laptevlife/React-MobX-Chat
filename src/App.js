@@ -44,7 +44,7 @@ function App() {
         ts: new Date(),
       });
     }
-    setTimeout(emit, randomBetween(1000, 3000));
+    setTimeout(emit, randomBetween(3000, 6000));
   }
 // console.log(this);
 

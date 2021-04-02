@@ -69,18 +69,31 @@ import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import { useStore } from '../../Context'
+import s from './MessagesBlock.module.scss'
+// import MessagesBlock from './MessagesBlock';
+
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
     // margin: theme.spacing(1),
     minWidth: 220,
     background: "#fff",
+    // fontSize: '5px'
   },
   selectEmpty: {
     font :'Roboto',
     // weight :'400',
     // size: '14px',
+    fontSize: '14px',
     background: "#fff",
+    height: '43px',
+    display: 'flex',
+    alignItems: 'center',
+    // border: '1px solid red',
+    paddingTop: '8px',
+    paddingRight: '10px',
+    borderBottom: "5px solid white",
+
 
     marginTop: theme.spacing(0),
   },
@@ -103,7 +116,7 @@ const store = useStore()
           value={age}
           onChange={handleChange}
           displayEmpty
-          className={classes.selectEmpty}
+          className={classes.selectEmpty }
           inputProps={{ 'aria-label': 'Without label' }}
         >
           <MenuItem value={''} >ALL CHANNELS</MenuItem>

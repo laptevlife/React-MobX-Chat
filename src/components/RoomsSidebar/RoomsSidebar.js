@@ -43,7 +43,7 @@ const RoomCard = React.memo(function ({ room }) {
 
     const roomName = Object.keys(room)[0]
     // console.log(roomName);
-    
+
     const roomNameSlice = function () {
 
         if (roomName.length > 14) {
@@ -54,11 +54,11 @@ const RoomCard = React.memo(function ({ room }) {
     }
 
     const roomObj = Object.values(room)
-    const messageLenght = roomObj[0].length
-    // const messageLenght =  roomObj[0].filter(i=>i.recived === false).length
+    // const messageLenght = roomObj[0].length
+    const messageLenght = roomObj[0].filter(i => i.recived === false).length
     // console.log( roomObj[0], roomObj[0].filter(i=>i.recived === false).length);
-    
-    const { roomId, body, ts } = roomObj[0][roomObj[0].length - 1]
+
+    const { roomId, sender, body, ts } = roomObj[0][roomObj[0].length - 1]
     const time = ts.toLocaleTimeString().slice(0, -3)
     const messageSlice = function () {
         if (body.length > 35) {
@@ -73,9 +73,8 @@ const RoomCard = React.memo(function ({ room }) {
             s.room__card,
             { [s.room__card__active]: roomId === store.getActiveChat() },
         )}
-            onClick={() => store.setActiveChat(roomId)}
-        // initial={{ opacity: 0, y: '-20%' }} animate={{ opacity: 1, y: '0', transition: { duration: 0.5 } }}
-        >
+            onClick={() => store.setActiveChat(roomId)}>
+        
             <div className={s.avatar}>
                 <IconAvatars />
             </div>
@@ -98,29 +97,3 @@ const RoomCard = React.memo(function ({ room }) {
         </div>
     ))
 })
-
-
-{/* <IconAvatars /> */ }
-
-
-const arr = [
-
-    {
-        id: 1,
-        roomId: 'Dr. Heinz Doofenshmirtz',
-        channelId: 'FB',
-        body: 'nisi ea ut',
-        ts: "2021-03-30T19:17:54.195Z"
-    },
-    {
-        id: 2,
-        roomId: 'Dr. Heinz Doofenshmirtz',
-        channelId: 'FB',
-        body: 'tempor ex aute nostrud',
-        ts: "2021-03-30T19:17:57.837Z"
-    },
-]
-
-
-
-

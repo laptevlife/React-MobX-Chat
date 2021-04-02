@@ -26,40 +26,37 @@ export function createStore() {
     },
 
     activeChat: null,
+    // activeChat: 'Tyler Durden',
     setActiveChat(id) {
       this.activeChat = id
+      // this.messages = this.messages.map(m=> m.roomId === id ?   { ...m, recived : true} : m )
+      this.filterRecivedMessages()
       
     },
     getActiveChat() {
       return this.activeChat
     },
-    chanelFilter: '',
-    setchanelFilter(filter){
 
-      this.chanelFilter = filter
-      // console.log( typeof this.chanelFilter);
-      
+    filterRecivedMessages(){
+              this.messages = this.messages.map(m=> m.roomId === this.activeChat ?   { ...m, recived : true} : m )
     },
+
+    chanelFilter: '',
+
+    setchanelFilter(filter){
+      this.chanelFilter = filter
+    },
+    
+
     getRoomMessages() {
       const messagesArr = toJS(this.messages).concat()
-      // if(this.activeChat !== null){
-      //   this.messages = this.messages.map
-      // }
+   
       if(this.chanelFilter !== ''){
         return messagesArr.filter(mess => mess.roomId === this.activeChat).filter(mess=> mess.channelId === this.chanelFilter)
       }
       return messagesArr.filter(mess => mess.roomId === this.activeChat)
     },
-    
-
-
-
-
-
-
-    // removeNote(id){
-    //     this.notes =  this.notes.filter( note => note.id !== id)
-    // }
+ 
   }
 }
 

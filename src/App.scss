@@ -6,10 +6,54 @@
     justify-content: space-between;
 
 }
-.MuiSelect-nativeInput{
-    border: "3px solid red",
+
+
+.MuiInput-underline:before {
+    border: 0px solid white !important;
+}
+.MuiInputBase-input:focus{
+    background-color: #fff !important;
+    // color: red;
+    border-bottom: 1px solid white !important;
 }
 
+
+// .MuiSelect-nativeInput{
+//     border: "3px solid red",
+// }
+// .MuiInputBase-root{
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     background-color: red;
+//     margin-top: 10px;
+// }
+// .MuiSelect-root::before {
+//     background-color: red;
+//     margin-top: 10px;
+//     border-bottom: none !important;
+// }
+// .MuiSelect-select:after {
+//     background-color: red;
+//     margin-top: 10px;
+//     border-bottom: none !important;
+// }
+// .MuiSelect-selectMenu:after {
+//     background-color: red;
+//     margin-top: 10px;
+//     border-bottom: none !important;
+
+// }
+// .MuiInputBase-input:after {
+//     background-color: red;
+//     margin-top: 10px;
+//     border-bottom: none !important;
+// }
+// .MuiInput-input::after{
+//     background-color: red;
+//     margin-top: 10px;
+//     border-bottom: none !important;
+// }
 // .MuiInput-underline{
 //     // display: none;
 //     // border: "3px solid red",

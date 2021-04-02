@@ -1,6 +1,6 @@
 .messages__block {
     width: calc(100% - 300px);
-    height: 100%;
+    height: calc(100vh - 34px);
     padding-top: 17px;
     padding-bottom: 17px;
     display: flex;
@@ -18,18 +18,25 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        // position: relative;
+        position: relative;
+
 
         &__head {
             width: 100%;
-            height: 45px;
+            height: 45px ;
+            margin-top: -0.5px;
             background-color: #fff;
             border-radius: 3px 3px 0px 0px;
             border-bottom: 1px solid #E5E5E5;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0px 16px 0px 16px;
+            padding: 0px 16px;
+            span{
+                height: 45px;
+                display: flex;
+                align-items: center;
+            }
         }
 
         &__body {
@@ -37,25 +44,90 @@
             min-height: calc(100% - 90px);
             height: auto;
             overflow-y: auto;
+            padding-top: 9px;
 
+            .divider{
+                width: calc(100% - 18px);
+                height: 30px;
+                margin: auto;
+                // background-color: pink;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin-top: -10px;
+                margin-bottom: 4px;
+                .line{
+                    width: 100%;
+                    // width: 44.5%;
+                    height: 1px ;
+                    // padding-left: 6px;
+                    // padding-right: 6px;
+                    background-color:  rgba(0, 0, 0, 0.4);;
+
+                }
+                .channelName{
+                    margin-left: 10px;
+                    margin-right: 10px;
+                    font-size: 14px;
+                    line-height: 11px;
+                    letter-spacing: 0.25px;
+                    font-weight: 400;
+                    color: rgba(0, 0, 0, 0.459);
+                }
+            }
+            @mixin box{
+                min-height: 50px;
+                width: auto;
+                min-width: 120px;
+                max-width: 70%;
+                padding: 7px 10px;
+                font-size: 14px;
+                font-style: normal;
+                font-weight: 400;
+                letter-spacing: 0.25px;
+                // min-height: 40px;
+                span{
+                    // position: absolute;
+                    // background-color: red;
+                    width: 25px;
+                    float: right;
+                    bottom: 5px;
+                    right: 9px;
+                    font-size: 10px;
+                    opacity: 0.8;
+                    letter-spacing: 0.15px;
+                }
+            }
             .message__line {
                 width: 100%;
                 min-height: 30px;
                 height: auto;
-                padding: 5px;
-                margin-top: 25px;
+                padding: 0px 9px 14px 9px;
                 position: relative;
                 display: flex;
                 align-items: center;
-                justify-content: flex-start;
 
+                // background-color: red;
+                // border: 1px solid green;
                 .message__box {
-                    width: 50%;
-                    background-color: pink;                  
+                    @include box;
+                    background-color: #E4E4E4;
+                    border-radius: 4px 8px 8px 4px;
+                    color: #0000009d;  
                 }
             }
-            .message__line__right{
+
+            .message__line__right {
                 justify-content: flex-end;
+                // color: white;
+
+                .message__box {
+                    @include box;
+                    background-color: #1BB55C;                    
+                    border-radius: 8px 4px 4px 8px;
+                    color: rgba(255, 255, 255, 0.877);                  
+
+                }
             }
         }
 
@@ -86,10 +158,12 @@
 
                 border: none;
                 outline: none;
+                height: 45px ;
                 width: calc(100% - 60px);
                 height: 100%;
                 padding-left: 14px;
                 border-radius: 0px 0px 5px 5px;
+                color: rgba(0, 0, 0, 0.637);
 
             }
 
@@ -116,3 +190,4 @@
         }
     }
 }
+
