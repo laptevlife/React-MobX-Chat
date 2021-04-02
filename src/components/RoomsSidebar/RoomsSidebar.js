@@ -53,7 +53,7 @@ const RoomCard = React.memo(function ({ room }) {
 
     const roomObj = Object.values(room)
     const messageLenght = roomObj[0].filter(i => i.recived === false).length
-    const { roomId,  body, ts } = roomObj[0][roomObj[0].length - 1]
+    const { roomId, sender,  body, ts } = roomObj[0][roomObj[0].length - 1]
     const time = ts.toLocaleTimeString().slice(0, -3)
     const messageSlice = function () {
         if (body.length > 35) {
@@ -82,7 +82,7 @@ const RoomCard = React.memo(function ({ room }) {
                 </div>
                 <div className={s.line2}>
                     <span>
-                        <span className={s.name}>{roomId} - </span>
+                        <span className={s.name}>{sender} - </span>
                         <span className={s.text}>{messageSlice()}</span>
                     </span>
                 </div>
