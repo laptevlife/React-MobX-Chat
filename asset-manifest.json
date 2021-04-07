@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/React-MobX-Chat/static/css/main.7c335a0e.chunk.css",
-    "main.js": "/React-MobX-Chat/static/js/main.2f4ab123.chunk.js",
-    "main.js.map": "/React-MobX-Chat/static/js/main.2f4ab123.chunk.js.map",
+    "main.css": "/React-MobX-Chat/static/css/main.2883a929.chunk.css",
+    "main.js": "/React-MobX-Chat/static/js/main.a04580a5.chunk.js",
+    "main.js.map": "/React-MobX-Chat/static/js/main.a04580a5.chunk.js.map",
     "runtime-main.js": "/React-MobX-Chat/static/js/runtime-main.821b27dd.js",
     "runtime-main.js.map": "/React-MobX-Chat/static/js/runtime-main.821b27dd.js.map",
-    "static/js/2.ea8df38f.chunk.js": "/React-MobX-Chat/static/js/2.ea8df38f.chunk.js",
-    "static/js/2.ea8df38f.chunk.js.map": "/React-MobX-Chat/static/js/2.ea8df38f.chunk.js.map",
+    "static/js/2.937d0246.chunk.js": "/React-MobX-Chat/static/js/2.937d0246.chunk.js",
+    "static/js/2.937d0246.chunk.js.map": "/React-MobX-Chat/static/js/2.937d0246.chunk.js.map",
     "index.html": "/React-MobX-Chat/index.html",
-    "static/css/main.7c335a0e.chunk.css.map": "/React-MobX-Chat/static/css/main.7c335a0e.chunk.css.map",
-    "static/js/2.ea8df38f.chunk.js.LICENSE.txt": "/React-MobX-Chat/static/js/2.ea8df38f.chunk.js.LICENSE.txt"
+    "static/css/main.2883a929.chunk.css.map": "/React-MobX-Chat/static/css/main.2883a929.chunk.css.map",
+    "static/js/2.937d0246.chunk.js.LICENSE.txt": "/React-MobX-Chat/static/js/2.937d0246.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.821b27dd.js",
-    "static/js/2.ea8df38f.chunk.js",
-    "static/css/main.7c335a0e.chunk.css",
-    "static/js/main.2f4ab123.chunk.js"
+    "static/js/2.937d0246.chunk.js",
+    "static/css/main.2883a929.chunk.css",
+    "static/js/main.a04580a5.chunk.js"
   ]
 }
