@@ -23,7 +23,7 @@
     width: 283px;
     height: 77px;
     border-radius: 5px;
-    display: flex;
+    display: flex !important;
     justify-content: space-between;
     position: relative;
     cursor: pointer;
@@ -31,6 +31,7 @@
     .avatar {
         width: 45px;
         height: 100%;
+
         display: flex;
         align-items: flex-start;
         justify-content: center;
@@ -51,41 +52,21 @@
             h6 {
                 font-size: 18px;
                 font-weight: 500;
-                color: rgba(0, 0, 0, 0.87)
+                color: rgba(0, 0, 0, 0.87);
+                width: 70%;
             }
 
             div {
-                width: 65px;
-                height: 100%;
+                width: 30%;
                 display: flex;
                 justify-content: space-evenly;
                 align-items: center;
-
-                .msg__count {
-                    
-                    width: auto;
-                    min-width: 18px;
-                    padding-left: 4px;
-                    padding-top: 1px;
-                    padding-right: 4px;
-                    height: 18px;
-                    border-radius: 9px;
-                    color: white;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    font-size: 14px;
-                    font-weight: 500;
-                    background-color: #083DCC;
-                }
 
                 .time {
                     width: 40px;
                     font-size: 14px;
                     font-weight: 500;
-
                 }
-
             }
 
         }
@@ -94,7 +75,7 @@
             display: flex;
             height: 60%;
             width: 100%;
-            span{
+            div{
                 line-height: 16px;
                 letter-spacing: 0.25px;
             }
@@ -114,5 +95,5 @@
     }
 }
 .room__card__active{
-    background-color: rgba(8, 60, 204, 0.137);
+    background-color: rgba(8, 60, 204, 0.137) !important;
 }

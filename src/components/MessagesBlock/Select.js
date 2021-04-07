@@ -81,7 +81,7 @@ const useStyles = makeStyles((theme) => ({
     // fontSize: '5px'
   },
   selectEmpty: {
-    font :'Roboto',
+    font: 'Roboto',
     fontSize: '14px',
     background: "#fff",
     height: '43px',
@@ -99,28 +99,28 @@ const useStyles = makeStyles((theme) => ({
 export default function SimpleSelect() {
   const classes = useStyles();
   const [age, setAge] = React.useState('');
-const store = useStore()
+  const store = useStore()
   const handleChange = (event) => {
     setAge(event.target.value);
-    store.setchanelFilter(event.target.value)
+    store.setchannelFilter(event.target.value)
   };
 
   return (
     <>
-   
-        
-        <Select
-          value={age}
-          onChange={handleChange}
-          displayEmpty
-          className={classes.selectEmpty }
-          inputProps={{ 'aria-label': 'Without label' }}
-        >
-          <MenuItem value={''} >ALL CHANNELS</MenuItem>
-          <MenuItem value={'VK'}>VK</MenuItem>
-          <MenuItem value={'FB'}>FB</MenuItem>
-          <MenuItem value={'OK'}>OK</MenuItem>
-        </Select>
+
+
+      <Select
+        value={age}
+        onChange={handleChange}
+        displayEmpty
+        className={classes.selectEmpty}
+        inputProps={{ 'aria-label': 'Without label' }}
+      >
+        <MenuItem value={''} >ALL CHANNELS</MenuItem>
+        <MenuItem value={'VK'}>VK</MenuItem>
+        <MenuItem value={'FB'}>FB</MenuItem>
+        <MenuItem value={'OK'}>OK</MenuItem>
+      </Select>
     </>
   );
 }

@@ -16,16 +16,12 @@ function App() {
   }, [])
 
 
-  const loremIpsum = require('lorem-ipsum').loremIpsum;
   let init = true;
   let id = 0;
   const roomIds = ['Perry the Platypus', 'Tyler Durden', 'Amy Pond', 'Le Petit Prince', 'Dr. Heinz Doofenshmirtz', 'Gregory'];
   const channelIds = ['VK', 'OK', 'FB'];
 
-  // emit();
-
   function emit() {
-    // console.log('this', this);
     let roomid = randomChoose(roomIds)
     if (init) {
       init = false;
@@ -46,7 +42,6 @@ function App() {
     }
     setTimeout(emit, randomBetween(3000, 6000));
   }
-// console.log(this);
 
   function randomBetween(min, max) {
     return Math.floor((max - min + 1) * Math.random()) + min;

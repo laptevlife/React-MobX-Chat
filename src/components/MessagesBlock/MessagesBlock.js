@@ -3,12 +3,14 @@ import s from './MessagesBlock.module.scss'
 import SimpleSelect from './Select'
 import { useStore } from '../../Context'
 import { useObserver } from "mobx-react";
-import { motion } from 'framer-motion';
 import { nanoid } from 'nanoid'
-import classNames from 'classnames'
+import MessageLine from './MessagesLine'
+
+
 
 
 const MessagesBlock = React.memo(function () {
+
     const store = useStore()
 
     return useObserver(() => (
@@ -26,17 +28,19 @@ const MessagesBlock = React.memo(function () {
 export default MessagesBlock
 
 
+
+
+
+
+
 const MessagesWindow = React.memo(function () {
 
     const store = useStore()
     const scrollTo = React.useRef()
 
+
     React.useEffect(() => {
         scrollTo.current.scrollIntoView({ behavior: "smooth" })
-
-    })
-
-    React.useEffect(() => {
         store.filterRecivedMessages()
         return () => store.filterRecivedMessages()
 
@@ -46,11 +50,12 @@ const MessagesWindow = React.memo(function () {
     const roomMsgs = store.messages.filter(i => i.roomId === store.activeChat)
 
     const submit = (event) => {
+        
         event.preventDefault();
         const newMessage = {
             id: nanoid(),
             roomId: store.activeChat,
-            channelId: store.chanelFilter || roomMsgs[roomMsgs.length - 1].channelId,
+            channelId: store.channelFilter || roomMsgs[roomMsgs.length - 1].channelId,
             sender: 'You',
             body: input,
             ts: new Date(),
@@ -74,7 +79,10 @@ const MessagesWindow = React.memo(function () {
                 <span ref={scrollTo}></span>
             </div>
             <form onSubmit={submit} action="" className={s.messages__window__footer}>
-                <input onChange={(e) => handleInputMessage(e.target.value)} placeholder='Введите текст' value={input} type="text" />
+                <input onChange={(e) => handleInputMessage(e.target.value)}
+                    placeholder='Введите текст'
+                    value={input}
+                    type="text" />
                 <button onClick={submit}>
                     <Svg />
                 </button>
@@ -87,53 +95,6 @@ const MessagesWindow = React.memo(function () {
 
 
 
-const MessageLine = React.memo(({ ms, index }) => {
-    const store = useStore()
-    const time = ms.ts.toLocaleTimeString().slice(0, -3)
-    const roomMessages = store.getRoomMessages()
-
-    const roomChannels = () => {
-        if (index >= 1) {
-            return roomMessages[index].channelId === roomMessages[index - 1].channelId ? true : false
-        } else {
-            return false
-        }
-    }
-
-
-    return useObserver(() => (
-        <>
-            {
-                !roomChannels() && <Divider channel={ms.channelId} />
-            }
-
-            <div className={classNames(
-                s.message__line,
-                { [s.message__line__right]: ms.sender === 'You' },
-            )}>
-                <motion.div
-                    className={s.message__box}
-                    initial={{ opacity: 0, y: '10%' }} animate={{ opacity: 1, y: '0', transition: { duration: 0.5 } }}>
-                    {/* <p>ChannelId : {ms.channelId}</p> */}
-                    <p>{ms.body}</p>
-                    <span>{time}</span>
-                </motion.div>
-
-            </div>
-        </>
-    ))
-})
-
-const Divider = ({ channel }) => {
-
-    return (
-        <div className={s.divider}>
-            <span className={s.line}></span>
-            <span className={s.channelName}>{channel}</span>
-            <span className={s.line}></span>
-        </div>
-    )
-}
 
 const Svg = () => {
     return (
